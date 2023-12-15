@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpResponse, HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
-
-
 
 
 
@@ -27,16 +25,19 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+  greeting : string[] = [];
 
     ngOnInit(){
+      this.httpClient.get<string[]>('http://localhost:8080/api/greeting')
+        .subscribe(response => {this.greeting = response;
+      });
+
+
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
-
  //     this.rooms=ROOMS;
-
-
     const roomsearchValueChanges$ = this.roomsearch.valueChanges;
 
     // subscribe to the stream
