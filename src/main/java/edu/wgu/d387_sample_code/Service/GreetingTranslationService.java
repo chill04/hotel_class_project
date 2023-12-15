@@ -7,16 +7,11 @@ import java.util.Locale;
 @Service
 public class GreetingTranslationService {
 
-//    @Autowired
-//    MessageSource messageSource;
-
     public String createWelcomeMessage(Locale locale, MessageSource messageSource) {
-//        MessageSource messageSource;
-//        Locale locale = Locale.CANADA_FRENCH;
-//        locale = LocaleContextHolder.getLocale();
+
         String localGreeting = messageSource.getMessage("welcomeMessage", null, locale);
         System.out.print(localGreeting + " retrieved \n");
-//        String[] greetingsArray = {localGreeting};
+
         return localGreeting;
     }
 }
