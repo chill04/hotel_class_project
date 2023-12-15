@@ -10,20 +10,14 @@ import java.util.ArrayList;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")
 public class GreetingController {
-
     private static ArrayList<String> greetings = new ArrayList<String>();
     public GreetingController(){
-    }
-
-    public ArrayList<String> getGreetings() {
-        return greetings;
     }
 
     public void addGreeting(String newGreeting) {
         greetings.add(newGreeting);
         System.out.print(newGreeting + " Added!\n");
     }
-
 
     @GetMapping("/greeting")
     public ArrayList<String> WelcomeController() {
